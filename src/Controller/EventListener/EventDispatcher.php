@@ -14,16 +14,16 @@ class EventDispatcher implements EventDispatcherInterface
        $this->listenerProvider = $listenerProvider;
    }
 
-   public function dispatch(object $event): object
+   public function dispatch(object $event): void
    {
 
        if ($event instanceof StoppableEventInterface && $event->isPropagationStopped()) {
-           return $event;
+           return;
        }
        foreach ($this->listenerProvider->getListenersForEvent($event) as $listener) {
            $listener($event);
        }
-       return $event;
+       return;
    }
 
 }

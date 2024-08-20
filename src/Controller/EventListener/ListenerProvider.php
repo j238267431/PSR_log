@@ -5,7 +5,7 @@ use Psr\EventDispatcher\ListenerProviderInterface;
 
 class ListenerProvider implements ListenerProviderInterface
 {
-   private $listeners = [];
+   private array $listeners = [];
 
    public function getListenersForEvent(object $event): iterable
    {

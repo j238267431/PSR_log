@@ -12,16 +12,17 @@ use App\Controller\EventListener\Message;
 class UserMessages
 {
    #[Route('/api/test/event')]
-   public function handleMessage(Request $request){
-      
+   public function handleMessage(Request $request) :response
+   {
+
       $listenerProvider = (new ListenerProvider())
            ->addListener(Event::class, new MessageListener());
-      $message = new Message($request->get('message'));
+      $message = new Message($request->query->get('message'));
       $dispatcher = new EventDispatcher($listenerProvider);
       $dispatcher->dispatch(new Event($message));
       
       return new Response(
-         '<html><body>Сообщение: '. $request->get('message') .' </body></html>'
+         '<html><body>Сообщение: '. $request->query->get('message') .' </body></html>'
      );
    }
 }

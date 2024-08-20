@@ -62,5 +62,9 @@
             "allow-contrib": false,
             "require": "6.3.*"
         }
+    },
+    "require-dev": {
+        "psalm/plugin-symfony": "^5.2",
+        "vimeo/psalm": "^5.25"
     }
 }

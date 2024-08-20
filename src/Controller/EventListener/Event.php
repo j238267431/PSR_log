@@ -6,8 +6,8 @@ use Psr\EventDispatcher\StoppableEventInterface;
 
 class Event implements StoppableEventInterface
 {
-   private $propagationStopped = false;
-   private $object;
+   private bool $propagationStopped = false;
+   private object $object;
 
    public function __construct(object $object)
    {
@@ -22,11 +22,6 @@ class Event implements StoppableEventInterface
    public function isPropagationStopped(): bool
     {
         return $this->propagationStopped;
-    }
-
-    public function stopPropagation(): void
-    {
-        $this->propagationStopped = true;
     }
 
 }

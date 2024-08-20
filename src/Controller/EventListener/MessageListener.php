@@ -8,7 +8,7 @@ use App\Controller\EventListener\Message;
 
 class MessageListener
 {
-   public function __invoke(Event $event)
+   public function __invoke(Event $event) : void
    {
       $object = $event->getObject();
       if ($object instanceof Message) {

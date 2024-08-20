@@ -8,7 +8,7 @@ class File implements \Psr\Log\LoggerAwareInterface
 
 
 
-   public function handle($level, $message) : void
+   public function handle(mixed $level, string $message) : void
    {
       $logRow = "[".$level."]"." ".$message . \PHP_EOL;
       @file_put_contents(static::LOG_FILE_PATH, $logRow, FILE_APPEND | LOCK_EX);

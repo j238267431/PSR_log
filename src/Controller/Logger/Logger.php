@@ -8,7 +8,7 @@ class Logger implements \Psr\Log\LoggerInterface
 {
    use LoggerTrait;
    
-   public function log($level, string|\Stringable $message, array $data = []): void
+   public function log(mixed $level, string|\Stringable $message, array $context = []): void
    { 
       $handler = new File;
       $handler->handle($level, $message);
